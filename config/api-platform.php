@@ -15,7 +15,7 @@ return [
     ],
 
     'resources' => [
-        app_path('Models'),
+        app_path('ApiResource'),
     ],
 
     'formats' => [
@@ -47,7 +47,7 @@ return [
 		'pagination_client_partial' => false,
 		'pagination_items_per_page' => 30,
 		'pagination_maximum_items_per_page' => 30,
-        'route_prefix' => '/api',
+        'route_prefix' => '',
         'middleware' => [],
     ],
 
