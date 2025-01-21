@@ -6,19 +6,17 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Zone;
-use App\Models\Vehicle;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Log;
 
-class InitialSeeder extends Seeder
+class ZonesSeeder extends Seeder
 {
+    use WithoutModelEvents;
+
     /**
      * Seed the application's database.
      */
     public function run(): void
-    {
-        $this->seedZones();
-    }
-
-    private function seedZones(): void
     {
         $zones = [
             [
@@ -40,12 +38,11 @@ class InitialSeeder extends Seeder
         ];
 
         foreach ($zones as $zone) {
-            Zone::factory()->create($zone);
+            try {
+                Zone::factory()->create($zone);
+            } catch(\Throwable) {
+                Log::error("Failed to create zone: {$zone['code']}");
+            }
         }
-    }
-
-    private function seedVehicles(): void
-    {
-
     }
 }
