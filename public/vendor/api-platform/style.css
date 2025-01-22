@@ -86,6 +86,7 @@ header #logo img {
   height: 100px;
   z-index: 500;
   animation: car 2s ease-in-out forwards;
+  visibility: hidden;
 }
 .webby_car .wheel {
   transform-origin: center;
@@ -117,7 +118,7 @@ header #logo img {
   50% {
     opacity: 1;
     transform: scale(1);
-  } 
+  }
   100% {
     opacity: 0;
     transform: scale(1);

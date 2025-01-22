@@ -8,6 +8,7 @@ return [
     'title' => 'API Platform',
     'description' => 'My awesome API',
     'version' => '1.0.0',
+    'show_webby' => false,
 
     'routes' => [
         // Global middleware applied to every API Platform routes
@@ -16,27 +17,37 @@ return [
 
     'resources' => [
         app_path('ApiResource'),
+        app_path('Models'),
     ],
 
     'formats' => [
         'jsonld' => ['application/ld+json'],
+        'json' => ['application/json'],
         //'jsonapi' => ['application/vnd.api+json'],
         //'csv' => ['text/csv'],
     ],
 
+    'input_formats' => [
+        'json' => ['application/json'],
+        'jsonld' => ['application/ld+json'],
+    ],
+
     'patch_formats' => [
         'json' => ['application/merge-patch+json'],
+        'jsonld' => ['application/ld+json'],
     ],
 
     'docs_formats' => [
         'jsonld' => ['application/ld+json'],
+        'json' => ['application/json'],
         //'jsonapi' => ['application/vnd.api+json'],
-        'jsonopenapi' => ['application/vnd.openapi+json'],
+        //'jsonopenapi' => ['application/vnd.openapi+json'],
         'html' => ['text/html'],
     ],
 
     'error_formats' => [
         'jsonproblem' => ['application/problem+json'],
+        'json' => ['application/json'],
     ],
 
     'defaults' => [

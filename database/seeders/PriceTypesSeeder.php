@@ -25,10 +25,17 @@ class PriceTypesSeeder extends Seeder
             [
                 'code' => PriceType::HOUR_TYPE,
             ],
+            [
+                'code' => PriceType::FEE_TYPE,
+            ]
         ];
 
         foreach ($vehicles as $zone) {
-            PriceType::factory()->create($zone);
+            try {
+                PriceType::factory()->create($zone);
+            } catch (\Exception $e) {
+                Log::error('Cannot create price type: ' . $e->getMessage());
+            }
         }
     }
 }

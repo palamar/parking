@@ -10,4 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class OwnershipType extends Model
 {
     use HasFactory;
+
+    public const PRIVATE = 'private';
+    public const MUNICIPAL = 'municipal';
 }

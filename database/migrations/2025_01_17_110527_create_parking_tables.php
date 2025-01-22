@@ -55,6 +55,7 @@ return new class extends Migration
         Schema::create('price_types', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('code', 200)
+                ->unique(true)
                 ->comment('human readable parking price types, eg. hour|day');
             $table->string('note', 200)->nullable();
             $table->timestamps();
@@ -72,7 +73,7 @@ return new class extends Migration
             $table->dateTimeTz('active_to')
                 ->nullable()
                 ->comment('we need possibility to hide prices in the future');
-            $table->integer('amount')
+            $table->float('amount')
                 ->unsigned()
                 ->comment('price of the parking lot');
             $table->string('note', 1000)->nullable();
@@ -115,7 +116,7 @@ return new class extends Migration
             $table->integer('zone_id')->unsigned()->references('id')->on('zones');
             $table->date('issue_date');
             $table->timeTz('issue_time');
-            $table->integer('amount')->unsigned();
+            $table->float('amount')->unsigned();
             $table->date('due_date');
             $table->boolean('is_closed')->default(false);
             $table->timestamps();
@@ -126,7 +127,7 @@ return new class extends Migration
         Schema::create('fee_payments', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->integer('fee_id')->unsigned()->references('id')->on('fees');
-            $table->integer('amount')->unsigned();
+            $table->float('amount')->unsigned();
             $table->timestamps();
             $table->string('payment_details', 1000)->nullable(true);
             $table->string('note', 1000)->nullable(true);
@@ -137,9 +138,10 @@ return new class extends Migration
             $table->integer('vehicle_id')->unsigned()->references('id')->on('vehicles');
             $table->integer('price_id')->unsigned()->references('id')->on('prices');
             $table->integer('zone_id')->unsigned()->references('id')->on('zones');
-            $table->integer('amount')->unsigned();
+            $table->float('amount')->unsigned();
             $table->dateTimeTz('start_time');
             $table->dateTimeTz('end_time');
+            $table->timestamps();
             $table->string('note', 1000)
                 ->nullable(true)
                 ->comment('store parking payments to identify is parking slot has been payed');
