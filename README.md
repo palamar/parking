@@ -8,7 +8,7 @@ It took more time than I've expected.
 ```shell
 docker run -p 8080:8080 palamar/parking:latest
 ```
-after that open in browser https://127.0.0.1:8000
+after that open it in browser https://127.0.0.1:8000
 
 ## Income per time period for the parking and fee:
 ```sql
