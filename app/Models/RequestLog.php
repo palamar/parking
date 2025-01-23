@@ -10,4 +10,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class RequestLog extends Model
 {
     use HasFactory;
+
+    public const SCAN_ACTION = 'scan';
 }

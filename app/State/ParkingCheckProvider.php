@@ -7,7 +7,10 @@ namespace App\State;
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;
 use App\Exceptions\MissedDataException;
+use App\Models\Operator;
 use App\Models\Payment;
+use App\Models\RequestLog;
+use App\Models\Scanner;
 use App\Models\Vehicle;
 use App\Models\Vehicle as VehicleModel;
 use App\Models\Zone as ZoneModel;
@@ -18,6 +21,7 @@ use App\Exceptions\ParkingForbiddenException;
 use App\Exceptions\WrongZoneException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Log;
+use App\Models\RequestLog as RequestLogModel;
 
 final class ParkingCheckProvider implements ProviderInterface
 {
@@ -35,7 +39,21 @@ final class ParkingCheckProvider implements ProviderInterface
         $parameters = $operation->getParameters();
         $plate =  mb_strtoupper(mb_trim((string) $parameters->get(ParkingCheck::PLATE)?->getValue()));
         $zone = mb_strtoupper(mb_trim((string) $parameters->get(ParkingCheck::ZONE)?->getValue()));
+        $operatorCode = mb_strtoupper(mb_trim((string) $parameters->get('operator_code')?->getValue()));
+        $scannerCode = mb_strtoupper(mb_trim((string) $parameters->get('scanner_code')?->getValue()));
         $zoneModel = $this->getZoneModelOrException($zone);
+        $operatorCodeModel = Operator::where(['operator_code' => $operatorCode])->first();
+        $scannerCodeModel = Scanner::where(['scanner_code' => $scannerCode])->first();
+        if ($operatorCode !== null) {
+            RequestLog::factory()->create([
+                'operator_id' => $operatorCodeModel->id,
+                'scanner_id' => $scannerCodeModel->id,
+                'action' => RequestLog::SCAN_ACTION,
+                'request_path' => '',
+                'request_method' => 'GET',
+                'request_date' => (new \DateTimeImmutable())->format('Y-m-d H:i:s'),
+            ]);
+        }
         $vehicleModel = $this->getVehicleModelOrException($plate, $zoneModel);
         $feeModelForZone = $this->getFeeForTheVehicleForToday($zoneModel, $vehicleModel);
 

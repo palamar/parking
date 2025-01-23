@@ -12,6 +12,7 @@ use App\Exceptions\WrongZoneException;
 use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Response;
+use App\Models\RequestLog;
 
 #[Get(
     uriTemplate: '/parking/check',
@@ -106,6 +107,8 @@ use ApiPlatform\OpenApi\Model\Response;
 )]
 #[QueryParameter(key: ParkingCheck::ZONE, property: ParkingCheck::ZONE)]
 #[QueryParameter(key: ParkingCheck::PLATE, property: ParkingCheck::PLATE)]
+#[QueryParameter(key: 'operator_code')]
+#[QueryParameter(key: 'scanner_code')]
 class ParkingCheck
 {
     public const ZONE = 'zone';

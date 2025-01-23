@@ -19,6 +19,12 @@ SELECT 'fees', sum(amount) FROM fee_payments fp WHERE created_at >= "2025-01-01"
 
 ## Vehicles tested by operator:
 ```sql
+SELECT CONCAT_WS(" ", o.name, o.surname) as fullname, COUNT(rl."action") as scans
+FROM request_logs rl INNER JOIN operators o ON rl.operator_id = o.id 
+WHERE rl.created_at >= "2025-01-01" AND rl.created_at < "2025-02-01" AND rl."action" = "scan"
+GROUP BY rl.operator_id 
+ORDER BY scans DESC
+LIMIT 10
 ```
 
 ## Vehicles per zone per time period:

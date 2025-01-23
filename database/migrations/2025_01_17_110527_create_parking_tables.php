@@ -151,9 +151,11 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->integer('scanner_id')->unsigned();
             $table->integer('operator_id')->unsigned();
+            $table->string('action', 100);
             $table->string('request_path', 800);
             $table->string('request_method', 50);
             $table->string('request_date', 6000);
+            $table->timestamps();
         });
     }
 
