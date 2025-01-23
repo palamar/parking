@@ -10,6 +10,9 @@ docker run -p 8080:8080 palamar/parking:latest
 ```
 after that open it in browser https://127.0.0.1:8080
 
+## Database schema (more or less actual)
+![schema](QuickDBD.svg)
+
 ## Income per time period for the parking and fee:
 ```sql
 SELECT 'payments', sum(amount) FROM payments p WHERE created_at >= "2025-01-01" AND created_at < "2025-02-01"
