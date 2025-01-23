@@ -1,7 +1,16 @@
 ## Information
 I decided to take a look on Laravel during this assigment, as I never worked with it before.
-Also, I never used Api Platform with the Laravel as well (as I know now documentation is not good in comparison with the Symfony).
-It took more time than I've expected.
+Also, I never used Api Platform with the Laravel as well (as I know now documentation is not good in comparison with the Symfony).  
+It took more time than I've expected.  
+As database was used SQlite, it's not the best choice as Laravel by default ignore all foreign keys for this type of DB.  
+But it allowed to pack DB inside a code container without need of docker-compose.yaml file to coordinate containers.
+
+## Notes regarding code
+There are not such sings as DTO for the Response, that allows much better control of the types and output formatting.  
+But usage of the dynamic arrays just faster to code.  
+Some checks may be organised as a list of preconfigured separate validation classes instead list of ifs.  
+Also there are missed unit/integration tests.
+
 
 
 ## To run code inside docker container:
