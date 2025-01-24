@@ -5,6 +5,16 @@ It took more time than I've expected.
 As database was used SQlite, it's not the best choice as Laravel by default ignore all foreign keys for this type of DB.  
 But it allowed to pack DB inside a code container without need of docker-compose.yaml file to coordinate containers.
 
+## To run code inside docker container (image already uploaded to the Docker Hub):
+```shell
+docker run -p 8080:8080 palamar/parking:latest
+```
+or you can use docker-compose.yaml file
+```shell
+docker compose up
+```
+after that open it in browser https://127.0.0.1:8080
+
 ## How to build and run locally (if you don't like version from the Docker Hub):
 > [!IMPORTANT]
 > PHP 8.3 and composer must be installed and preconfigured locally to do this.
@@ -23,15 +33,6 @@ Also there are missed unit/integration tests.
 
 
 
-## To run code inside docker container:
-```shell
-docker run -p 8080:8080 palamar/parking:latest
-```
-or you can use docker-compose.yaml file
-```shell
-docker compose up
-```
-after that open it in browser https://127.0.0.1:8080
 
 ## Database schema (more or less actual)
 ![<a href="https://raw.githubusercontent.com/palamar/parking/refs/heads/main/QuickDBD.svg" />](QuickDBD.svg)
