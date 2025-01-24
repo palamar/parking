@@ -6,7 +6,9 @@ As database was used SQlite, it's not the best choice as Laravel by default igno
 But it allowed to pack DB inside a code container without need of docker-compose.yaml file to coordinate containers.
 
 ## How to build and run locally (if you don't like version from the Docker Hub):
-\color{red}{\textsf{PHP 8.3 and composer must be installed and preconfigured locally to do this}}$
+> [!IMPORTANT]
+> PHP 8.3 and composer must be installed and preconfigured locally to do this.
+
 ```bash
 # be in the branch directory and run commands in a shell
 ./build.sh # get composer packages via composer and configure and seed DB with conf. info.
