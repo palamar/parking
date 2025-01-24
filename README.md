@@ -1,10 +1,3 @@
-## Information
-I decided to take a look on Laravel during this assigment, as I never worked with it before.
-Also, I never used Api Platform with the Laravel as well (as I know now documentation is not good in comparison with the Symfony).  
-It took more time than I've expected.  
-As database was used SQlite, it's not the best choice as Laravel by default ignore all foreign keys for this type of DB.  
-But it allowed to pack DB inside a code container without need of docker-compose.yaml file to coordinate containers.
-
 ## To run code inside docker container (image already uploaded to the Docker Hub):
 ```shell
 docker run -p 8080:8080 palamar/parking:latest
@@ -24,6 +17,14 @@ after that open it in browser https://127.0.0.1:8080
 ./build.sh # get composer packages via composer and configure and seed DB with conf. info.
 docker compose up
 ```
+
+## Information
+I decided to take a look on Laravel during this assigment, as I never worked with it before.
+Also, I never used Api Platform with the Laravel as well (as I know now documentation is not good in comparison with the Symfony).  
+It took more time than I've expected.  
+As database was used SQlite, it's not the best choice as Laravel by default ignore all foreign keys for this type of DB.  
+But it allowed to pack DB inside a code container without need of docker-compose.yaml file to coordinate containers.
+
 
 ## Notes regarding code
 There are not such sings as DTO for the Response, that allows much better control of the types and output formatting.  
