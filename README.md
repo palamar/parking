@@ -1,6 +1,6 @@
 ## To run code inside docker container (image already uploaded to the Docker Hub):
 ```shell
-docker run -p 8080:8080 palamar/parking:latest
+docker run -it -p 8080:8080 palamar/parking:latest
 ```
 or you can use docker-compose.yaml file
 ```shell
