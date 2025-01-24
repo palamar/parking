@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use ApiPlatform\Metadata\ApiResource;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use ApiPlatform\Metadata\GetCollection;
 
-#[GetCollection()]
+#[ApiResource()]
 class Zone extends Model
 {
     use HasFactory;

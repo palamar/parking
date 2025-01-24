@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use ApiPlatform\Metadata\ApiResource;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use ApiPlatform\Metadata\GetCollection;
 
-#[GetCollection(
-    paginationEnabled: false,
-)]
+#[ApiResource()]
 class PriceType extends Model
 {
     use HasFactory;

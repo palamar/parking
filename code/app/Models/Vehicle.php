@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\ApiResource\ParkingPay;
 use App\Models\OwnershipType as OwnershipTypeModel;
 use App\Models\Vehicle as VehicleModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+#[ApiResource()]
 class Vehicle extends Model
 {
     use HasFactory;

@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Models\Fee as FeeModel;
 use App\Models\Zone as ZoneModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+#[ApiResource()]
 class Fee extends Model
 {
     use HasFactory;

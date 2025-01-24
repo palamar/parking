@@ -1,0 +1,7 @@
+services:
+  php:
+    # just use of the prebuild image, tha I've uploaded to the DockerHub
+    # with docker buildx build -t palamar/parking --platform linux/amd64,linux/arm64  --push .
+    image: palamar/parking:latest
+    ports:
+      - "127.0.0.1:8080:8080"

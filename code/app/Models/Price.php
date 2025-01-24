@@ -4,18 +4,13 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use ApiPlatform\Metadata\ApiResource;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use ApiPlatform\Metadata\GetCollection;
-use ApiPlatform\Metadata\QueryParameter;
-use ApiPlatform\Laravel\Eloquent\Filter\EqualsFilter;
 
-#[GetCollection(
-    paginationEnabled: false,
-)]
-#[QueryParameter(key: 'zoneId', filter: EqualsFilter::class)]
+#[ApiResource()]
 class Price extends Model
 {
     use HasFactory;
