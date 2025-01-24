@@ -5,6 +5,13 @@ It took more time than I've expected.
 As database was used SQlite, it's not the best choice as Laravel by default ignore all foreign keys for this type of DB.  
 But it allowed to pack DB inside a code container without need of docker-compose.yaml file to coordinate containers.
 
+## How to build and run locally (if you don't like version from the Docker Hub):
+```bash
+# be in the branch directory and run commands in a shell
+./build.sh # get composer packages via composer and configure and seed DB with conf. info.
+docker compose up
+```
+
 ## Notes regarding code
 There are not such sings as DTO for the Response, that allows much better control of the types and output formatting.  
 But usage of the dynamic arrays just faster to code.  
