@@ -34,7 +34,7 @@ docker compose up
 after that open it in browser https://127.0.0.1:8080
 
 ## Database schema (more or less actual)
-![<img src="QuickDBD.svg" width="100%"/>](QuickDBD.svg)
+![<img src="https://raw.githubusercontent.com/palamar/parking/refs/heads/main/QuickDBD.svg" />](QuickDBD.svg)
 
 [Full size image](https://raw.githubusercontent.com/palamar/parking/refs/heads/main/QuickDBD.svg)
 
