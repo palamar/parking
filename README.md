@@ -24,6 +24,10 @@ Also there are missed unit/integration tests.
 ```shell
 docker run -p 8080:8080 palamar/parking:latest
 ```
+or you can use docker-compose.yaml file
+```shell
+docker compose up
+```
 after that open it in browser https://127.0.0.1:8080
 
 ## Database schema (more or less actual)
